@@ -1,0 +1,60 @@
+<h3>Add CERC !</h3>
+<div class="form-group">
+    <label>X1 :</label>
+    <input type="number" class="form-control" [(ngModel)]="newCerc.x1">
+</div>
+<div class="form-group">
+    <label>Y1 :</label>
+    <input type="number" class="form-control" [(ngModel)]="newCerc.y1">
+</div>
+<div class="form-group">
+    <label>X2 :</label>
+    <input type="number" class="form-control" [(ngModel)]="newCerc.x2">
+</div>
+<div class="form-group">
+    <label>Y2 :</label>
+    <input type="number" class="form-control" [(ngModel)]="newCerc.y2">
+</div>
+<div class="form-group">
+    <label>R :</label>
+    <input type="number" class="form-control" [(ngModel)]="newCerc.r">
+</div>
+<button class="btn btn-default" (click)="addCerc()">Add Cerc</button>
+<br>
+<br>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let cerc of cercs">
+        <div *ngIf="!cerc.update">
+            Start Point : ({{cerc.x1}},{{cerc.y1}}) L1 - {{cerc.x2}} L2 - {{cerc.x2}} R : {{cerc.r}}
+            <button type="button" class="btn btn-xs btn-danger" (click)="removeCerc(cerc)">Delete</button>
+            <button type="button" class="btn btn-xs btn-info" (click)="updateCerc(cerc)">Update</button>
+            <button type="button" class="btn btn-xs btn-success" (click)="drawCerc(cerc)">Draw</button>
+        </div>
+        <div *ngIf="cerc.update">
+            <div class="form-group">
+                <label>X1 :</label>
+                <input type="number" class="form-control" [(ngModel)]="cerc.x1">
+            </div>
+            <div class="form-group">
+                <label>Y1 :</label>
+                <input type="number" class="form-control" [(ngModel)]="cerc.y1">
+            </div>
+            <div class="form-group">
+                <label>X2 :</label>
+                <input type="number" class="form-control" [(ngModel)]="cerc.x2">
+            </div>
+            <div class="form-group">
+                <label>Y2 :</label>
+                <input type="number" class="form-control" [(ngModel)]="cerc.y2">
+            </div>
+            <div class="form-group">
+                <label>R :</label>
+                <input type="number" class="form-control" [(ngModel)]="cerc.r">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-xs btn-info" (click)="updateCercV(cerc)">Update</button>
+            </div>
+        </div>
+    </li>
+</ul>
+<button type="button" class="btn btn-xs btn-info" (click)="drawAllCerc()">Draw ALL CERC !</button>

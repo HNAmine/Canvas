@@ -1,0 +1,52 @@
+<h3>Add RECT !</h3>
+<div class="form-group">
+    <label>X :</label>
+    <input type="number" class="form-control" [(ngModel)]="newRect.x">
+</div>
+<div class="form-group">
+    <label>Y :</label>
+    <input type="number" class="form-control" [(ngModel)]="newRect.y">
+</div>
+<div class="form-group">
+    <label>Largeur :</label>
+    <input type="number" class="form-control" [(ngModel)]="newRect.lar">
+</div>
+<div class="form-group">
+    <label>Longueur :</label>
+    <input type="number" class="form-control" [(ngModel)]="newRect.long">
+</div>
+<button class="btn btn-default" (click)="addRect()">Add Rect</button>
+<br>
+<br>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let rect of rects">
+        <div *ngIf="!rect.update">
+            Start Point : ({{rect.x}},{{rect.y}}) long : {{rect.long}} lar : {{rect.lar}}
+            <button type="button" class="btn btn-xs btn-danger" (click)="removeRect(rect)">Delete</button>
+            <button type="button" class="btn btn-xs btn-info" (click)="updateRect(rect)">Update</button>
+            <button type="button" class="btn btn-xs btn-success" (click)="drawRect(rect)">Draw</button>
+        </div>
+        <div *ngIf="rect.update">
+            <div class="form-group">
+                <label>X :</label>
+                <input type="number" class="form-control" [(ngModel)]="rect.x">
+            </div>
+            <div class="form-group">
+                <label>Y :</label>
+                <input type="number" class="form-control" [(ngModel)]="rect.y">
+            </div>
+            <div class="form-group">
+                <label>Largeur :</label>
+                <input type="number" class="form-control" [(ngModel)]="rect.lar">
+            </div>
+            <div class="form-group">
+                <label>Longueur :</label>
+                <input type="number" class="form-control" [(ngModel)]="rect.long">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-xs btn-info" (click)="updateRectV(rect)">Update</button>
+            </div>
+        </div>
+    </li>
+</ul>
+<button type="button" class="btn btn-xs btn-info" (click)="drawAllRect()">Draw ALL RECT !</button>
