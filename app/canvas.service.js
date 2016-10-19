@@ -10,11 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var CanvasService = (function () {
+    //db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024);
     function CanvasService() {
-        this.db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024);
-        this.db.transaction(function (tx) {
-            tx.executeSql('CREATE TABLE history (id UNIQUE, text)');
-        });
+        /* this.db.transaction(function (tx) {
+             tx.executeSql('CREATE TABLE history (id UNIQUE, text)');
+         });*/
     }
     CanvasService.prototype.addCircle = function () {
     };
@@ -29,9 +29,9 @@ var CanvasService = (function () {
         ctx.rect(rect.x, rect.y, rect.lar, rect.long);
         ctx.stroke();
         var txt = "new Rect (" + rect.x + "," + rect.y + ") lar : " + rect.lar + " long : " + rect.long;
-        this.db.transaction(function (tx) {
+        /*this.db.transaction(function (tx) {
             tx.executeSql('INSERT INTO history (text) VALUES ("' + txt + '")');
-        });
+        });*/
     };
     CanvasService.prototype.drawCerc = function (cerc) {
         var c = document.getElementById("myCanvas");
@@ -40,9 +40,9 @@ var CanvasService = (function () {
         ctx.arc(cerc.x1, cerc.y1, cerc.x2, cerc.y2, cerc.r);
         ctx.stroke();
         var txt = "new Cercl (" + cerc.x1 + "," + cerc.y1;
-        this.db.transaction(function (tx) {
+        /*this.db.transaction(function (tx) {
             tx.executeSql('INSERT INTO history (text) VALUES ("' + txt + '")');
-        });
+        });*/
     };
     CanvasService.prototype.drawLine = function (line) {
         var c = document.getElementById("myCanvas");
@@ -52,9 +52,9 @@ var CanvasService = (function () {
         ctx.lineTo(line.x1, line.y2);
         ctx.stroke();
         var txt = "new Line Start(" + line.x1 + "," + line.y1 + ") End(" + line.x2 + "," + line.y2 + ")";
-        this.db.transaction(function (tx) {
+        /*this.db.transaction(function (tx) {
             tx.executeSql('INSERT INTO history (text) VALUES ("' + txt + '")');
-        });
+        });*/
     };
     CanvasService = __decorate([
         core_1.Injectable(), 
